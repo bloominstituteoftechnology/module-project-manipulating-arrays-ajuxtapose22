@@ -31,7 +31,20 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
+      let result = 0 
 
+      for (let i = 0; i < nums.length; i++) {
+        let input = nums[i]
+        // console.log(input)
+        if (typeof input === "number") {
+          if (input === 13) {
+            return "I'm too superstitious!"  
+        }
+        result += input 
+      } 
+    }
+      return result
+    
     }
 
     // 👉 CHALLENGE 2
@@ -41,17 +54,39 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
-
-    }
+    const result = []
+     const split = str.split('')
+    //  console.log(split)
+     for (let i = 0; i < split.length; i++) {
+      const char = split[i]
+      if (char !== "a" && char !== "e" && char !== "i" && char !== "o" && char !== "u") {
+      result.push(char)
+      
+      }
+  }
+  return result.join('')
+}
+     
 
     // 👉 CHALLENGE 3
     // 🧠 Reimplement sumNumsFor using a while loop instead of a for loop.
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(nums) {
+      let result = 0
+      let i = 0 
+      while (i < nums.length) {
+        let input = nums[i]
+        // console.log(input)
+      if (typeof input === "number") {
+          if (input === 13) {
+            return "I'm too superstitious!"  
+        } result += input 
+        } i++
+    } return result
     }
+
 
     // 👉 CHALLENGE 4
     // 🧠 The function fightMonsters takes an integer (lifePoints) as its argument, and returns a string.
@@ -70,7 +105,16 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
+    function fightMonsters(lifePoints) {
+
+      let round = 1
+      while (lifePoints > 0) {
+        lifePoints -= round
+        if (lifePoints <= 0) {
+          return `You died in round ${round}`
+        }
+        round++
+      }
 
     }
 
@@ -81,8 +125,15 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(ints) {
+      let evenNums = []
+      for (let index in ints){
+        let num = ints[index]
+        if (num % 2 === 0) {
+          evenNums.push(num)
+        }
+      }
+      return evenNums
     }
 
     // 👉 CHALLENGE 6
